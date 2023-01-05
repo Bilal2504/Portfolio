@@ -1,0 +1,390 @@
+body{
+    margin: auto;
+}
+
+/* Section accueil */
+
+/* Tete de page */
+
+header.header{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;        
+    
+      
+}
+
+header.header img{
+    width: 180px;
+    margin-left: 20px;
+}
+
+
+section.accueil{
+    background-image:url("Image/bg.jpg");
+    height: 95vh;
+    background-size: cover;
+    background-position: center;
+    padding: 25px;
+}
+
+
+/* Page de bienvenue */
+
+.contenue{
+    padding: 200px 50px;
+    margin-left: 20px;
+    color: white;
+}
+
+.titre{
+    font-size: 100px;
+}
+
+.sous-titre{
+    font-size: 40px;
+}
+
+.presentation{
+    font-size: 20px;
+}
+/* Menu de navigation */
+
+
+
+nav.nav{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 1000px;
+    margin-left: 250px;
+}
+
+nav.nav li{
+    color: white;
+    text-decoration: none;
+}
+
+/* Section a-propos */
+
+section.propos{
+    background-image:url("Image/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg");
+    background-position: center;
+    background-size:cover;
+    height: 100vh;
+    padding: 25px;
+    color: white;
+}
+
+h3.a-propos{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 70px;
+}
+
+div.moi img{
+    width: 600px;
+    height: 655px;
+    float: left;
+    display: flex;
+}
+
+div.moi h4{
+    text-align: center; 
+    font-size: 40px;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.moi p{
+    font-size: 30px;
+    text-align: start;
+    margin-left: 200px;
+    margin-right: -200px;
+}
+
+div.text-moi{
+    padding-top: 200px;
+    width: 600px;
+    float: left;
+}
+
+
+div.moi{
+    background-color: rgb(31, 31, 31);
+    margin-top: 50px;
+    height: 655px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+}
+
+
+
+/* Section BTS */
+
+section.bts{
+    background-image:url("Image/caspian-dahlstrom-NT6Yr2tRhnM-unsplash.jpg");
+    background-position: center;
+    background-size:cover;
+    height: 220vh;
+    padding: 25px;  
+    color: white;   
+}
+
+h3.btssio{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 70px;
+}
+
+div.text-moi{
+    padding-top: 20px;
+    width: 600px;
+}
+
+
+
+/* QU'EST CE QUE LE BTS SIO ?*/
+
+div.cquoi img{
+    width: 750px;
+    float: right;
+    display: flex;
+}
+
+div.cquoi h4{
+    text-align: center; 
+    font-size: 40px;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.cquoi p{
+    font-size: 25px;
+    text-align: start;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.cquoi-text{
+    padding-top: 20px;
+    width: 600px;
+}
+
+div.cquoi{
+    background-color: rgb(31, 31, 31);
+    margin-top: 50px;
+    height: 653px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+}
+
+/* OPTION SLAM */
+
+div.slam img{
+    width: 750px;
+    float: right;
+    display: flex;
+    display: flex;
+}
+
+div.slam h4{
+    text-align: center; 
+    font-size: 40px;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.slam p{
+    font-size: 25px;
+    text-align: start;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.slam-text{
+    padding-top: 20px;
+    width: 600px;
+}
+
+div.slam{
+    background-color: rgb(31, 31, 31);
+    margin-top: 50px;
+    height: 484px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+}
+
+
+/* OPTION SISR */
+
+div.sisr img{
+    width: 750px;
+    float: right;
+    display: flex;
+    display: flex;
+}
+
+div.sisr h4{
+    text-align: center; 
+    font-size: 40px;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.sisr p{
+    font-size: 25px;
+    text-align: start;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.sisr-text{
+    padding-top: 20px;
+    width: 600px;
+}
+
+div.sisr{
+    background-color: rgb(31, 31, 31);
+    margin-top: 50px;
+    height: 515px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+}
+
+/* Bachelor 3 */
+
+section.bachelor{
+    background-color: rgb(63, 62, 62);
+    height: 100vh;;
+    padding: 25px;
+    color: white;   
+}
+
+h3.b-title{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 70px;
+}
+
+/* Projet réalisé */
+
+section.projet{
+    background-image:url("Image/dell-uifTyG8vUCk-unsplash.jpg");
+    background-position: center;
+    background-size:cover;
+    height: 100vh;;
+    padding: 25px;
+    color: white;   
+}
+
+h3.projet-title{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 70px;
+}
+
+div.mes-projet img{
+    width: 900px;
+    height: 655px;
+    float: right;
+    display: flex;
+    display: flex;
+}
+
+div.mes-projet h4{
+    text-align: center; 
+    font-size: 40px;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.mes-projet p{
+    font-size: 30px;
+    text-align: start;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.ou-projet{
+    padding-top: 20px;
+    width: 600px;
+}
+
+div.mes-projet{
+    background-color: rgb(63, 62, 62);
+    margin-top: 50px;
+    height: 655px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+}
+
+/* redirection projet réalisé */
+
+section.projet-realise{
+    background-color: rgb(63, 62, 62);
+    height: 1000vh;
+    padding: 25px;
+    color: white;   
+}
+
+
+/* Section Stages */
+
+section.stage{
+    background-image:url("Image/mount-fuji-395047_960_720.jpg");
+    background-position: center;
+    background-size:cover;
+    height: 100vh;;
+    padding: 25px;
+    color: white;   
+}
+
+h3.stage-title{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 70px;
+}
+
+div.mes-stage img{
+    width: 750px;
+    height: 655px;
+    float: right;
+    display: flex;
+    display: flex;
+}
+
+div.mes-stage h4{
+    text-align: center; 
+    font-size: 40px;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.mes-stage p{
+    font-size: 30px;
+    text-align: start;
+    margin-left: 100px;
+    margin-right: -100px;
+}
+
+div.ou-stage{
+    padding-top: 20px;
+    width: 600px;
+}
+
+div.mes-stage{
+    background-color: rgb(31, 31, 31);
+    margin-top: 50px;
+    height: 655px;
+    margin-right: 100px; 
+    margin-left: 100px; 
+}
+
+li *{
+    color: white;
+    text-decoration: none;
+}
