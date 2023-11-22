@@ -3,7 +3,18 @@ body{
 }
 
 /* Section accueil */
+a{
+    color: black;
+    text-decoration: none; 
+    text-decoration-color:white;
+}
 
+a:hover{ 
+    color: grey;
+    text-decoration: underline; 
+    text-underline-offset: 1rem; 
+    text-decoration-color: rgb(181, 181, 181);
+}
 /* Tete de page */
 
 header.header{
@@ -69,58 +80,6 @@ nav.nav li{
 }
 
 /* Section a-propos */
-
-section.propos{
-    background-image:url("Image/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg");
-    background-position: center;
-    background-size:cover;
-    height: 100vh;
-    padding: 25px;
-    color: white;
-}
-
-h3.a-propos{
-    padding-top: 50px;
-    text-align: center;
-    font-size: 70px;
-}
-
-div.moi img{
-    width: 600px;
-    height: 655px;
-    float: left;
-    display: flex;
-}
-
-div.moi h4{
-    text-align: center; 
-    font-size: 40px;
-    margin-left: 100px;
-    margin-right: -100px;
-}
-
-div.moi p{
-    font-size: 30px;
-    text-align: start;
-    margin-left: 200px;
-    margin-right: -200px;
-}
-
-div.text-moi{
-    padding-top: 200px;
-    width: 600px;
-    float: left;
-}
-
-
-div.moi{
-    background-color: rgb(31, 31, 31);
-    margin-top: 50px;
-    height: 655px;
-    margin-right: 100px; 
-    margin-left: 100px; 
-}
-
 
 
 /* Section BTS */
@@ -388,3 +347,32 @@ li *{
     color: white;
     text-decoration: none;
 }
+
+
+/* HAMBURGER MENU */
+
+/* #hamburger-nav {
+    display: none;
+}
+
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     height: 24px;
+     width: 30px;
+     cursor: pointer;
+}
+
+.hamburger-icon span{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+ */
