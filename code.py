@@ -1,52 +1,60 @@
 import pandas as pd
+import csv
 
-# Charger le fichier CSV initial
-fichier_initial = "votre_fichier.csv"  # Remplacez par le chemin de votre fichier
+fichier_initial = "20240801_etat_validation_paa_chantiers.csv"
+
 df = pd.read_csv(fichier_initial)
 
-# Sélectionner les colonnes à extraire et les renommer
-colonnes_a_extraire = {
-    "nom_colonne_initiale1": "nouveau_nom1",
-    "nom_colonne_initiale2": "nouveau_nom2",
-    "nom_colonne_initiale3": "nouveau_nom3",
-    "nom_colonne_initiale4": "nouveau_nom4",  # Cette colonne sera convertie en numérique
-    "test": "test"  # Garder la colonne 'test' pour calculer la somme
-}
 
-# Sélectionner les colonnes nécessaires
-df_selection = df[list(colonnes_a_extraire.keys())]
-df_selection = df_selection.rename(columns=colonnes_a_extraire)  # Renommer les colonnes
+# Parametrage du renommage des colonnes
+colonne_extraire = {
+    "Ligne Projet ou Chantier":
+        "Type",
+    "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI":
+        "Projet",
+    "Macro-Domaine":
+        "Domaine",
+    "Domaine":
+        "Sous-domaine",
+    "Charges Structure MOAE/MOE Valide JH":
+        "Charges SI (Interne/Externe) validée"
+    }
 
-# Convertir "nouveau_nom4" (anciennement "nom_colonne_initiale4") en numérique
-df_selection["nouveau_nom4"] = pd.to_numeric(df_selection["nouveau_nom4"], errors='coerce')
 
-# Trier les données : d'abord par "nouveau_nom1", puis par "nouveau_nom2"
-df_trie = df_selection.sort_values(by=["nouveau_nom1", "nouveau_nom2"], ascending=[True, True])
+# Permet d'extraire et renommée les colonnes
+df_selection = df[list(colonne_extraire.keys())]
+df_selection = df_selection.rename(columns = colonne_extraire)
 
-# Diagnostiquer avant la conversion de la colonne 'test'
-print("Avant conversion :")
-print(df_trie['test'].head(10))  # Affiche les 10 premières valeurs de la colonne 'test'
 
-# Convertir la colonne 'test' en numérique en traitant les erreurs
-df_trie['test_num'] = pd.to_numeric(df_trie['test'], errors='coerce')
+# Filtre pour garder que les projet de type projet
+df_filtre = df_selection[df_selection["Type"] == "Projet"]
 
-# Diagnostiquer après la conversion
-print("Après conversion :")
-print(df_trie[['test', 'test_num']].head(10))  # Compare les anciennes et nouvelles valeurs
+# Trier par ordre croissant Domaine puis Sous-domaine
+df_trie = df_filtre.sort_values(by = ["Domaine", "Sous-domaine"], ascending = [True, True])
 
-# Vérifier si des valeurs valides existent après conversion
-if df_trie['test_num'].isna().sum() < len(df_trie):
-    # Calculer la somme de la colonne 'test_num' en excluant les NaN
-    somme_test = df_trie['test_num'].sum()
+print("avant conversion : ")
+print(df_trie["test"]
 
-    # Ajouter une nouvelle colonne 'l'âge test2' avec la somme calculée seulement sur la première ligne
-    df_trie["l'âge test2"] = ""
-    df_trie.loc[df_trie.index[0], "l'âge test2"] = somme_test
+# Permet de calculer la somme de la colonne (total des charges)
+df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors = 'coerce')
 
-    # Sauvegarder les données modifiées dans un nouveau fichier CSV
-    fichier_sortie = "copsi_mission.csv"
-    df_trie.to_csv(fichier_sortie, index=False)
+somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
 
-    print(f"La somme de la colonne 'test' a été ajoutée dans la première ligne de la colonne 'l'âge test2' dans {fichier_sortie}.")
-else:
-    print("Erreur : toutes les valeurs de la colonne 'test' sont devenues NaN après la conversion.")
+df_trie["Somme total"] = ""
+df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
+                                                                   
+# Permet de calculer la somme des charges sous-totaux par doamaine
+
+
+# Permet de calculer la somme des charges sous-totaux par sous-doamaine
+
+
+# Permet de calculer le poids des sous-domaine par rapport au SI
+
+
+# Permet de nommer et envoyer dans le nouveau fichier
+fichier_final = "copsi_mission_test_07.csv"
+df_trie.to_csv (fichier_final, index = False)
+
+# Retour pour confirmé la création du nouveau fichier
+print (f"Les colonnes selectionné ont été sauvegardés dans {fichier_final}.")
