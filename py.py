@@ -28,27 +28,30 @@ df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/
 # Remplacement des virgules par des points pour traiter les décimales correctement
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
 
-
 # Conversion de la colonne en type numérique
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
 
 # Calcul de la somme totale des charges
 somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
 
-# Ajouter la somme totale
+# Ajouter la somme totale en première ligne (optionnel)
 df_trie['Somme total'] = ""
 df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
 
-# Charges total par sous-domaines
+# Calcul des charges totales par Domaine
+charges_domaine = df_trie.groupby('Domaine')['Charges SI (Interne/Externe) validée'].sum()
 
-# Charges total par domaine
+# Calcul des charges totales par Sous-domaine
+charges_sous_domaine = df_trie.groupby('Sous-domaine')['Charges SI (Interne/Externe) validée'].sum()
 
-# Poids total par domaine en %
+# Poids total par Domaine en %
+df_trie['Poids Domaine (%)'] = df_trie['Domaine'].map(lambda x: (charges_domaine[x] / somme_total) * 100)
 
-# Poids total par sous-domaine par rapport au domaine en %
+# Poids total par Sous-domaine par rapport au Domaine en %
+df_trie['Poids Sous-domaine par Domaine (%)'] = (df_trie['Charges SI (Interne/Externe) validée'] / df_trie.groupby('Domaine')['Charges SI (Interne/Externe) validée'].transform('sum')) * 100
 
-# Poids total par sous-domaine par rapport a la charges total en %
-
+# Poids total par Sous-domaine par rapport aux charges totales en %
+df_trie['Poids Sous-domaine (%)'] = df_trie['Sous-domaine'].map(lambda x: (charges_sous_domaine[x] / somme_total) * 100)
 
 # Sauvegarde des données traitées dans un nouveau fichier CSV
 fichier_final = "copsi_mission_test_13.csv"
