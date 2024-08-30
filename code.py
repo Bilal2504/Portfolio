@@ -32,9 +32,6 @@ df_filtre = df_selection[df_selection["Type"] == "Projet"]
 # Trier par ordre croissant Domaine puis Sous-domaine
 df_trie = df_filtre.sort_values(by = ["Domaine", "Sous-domaine"], ascending = [True, True])
 
-print("avant conversion : ")
-print(df_trie["test"]
-
 # Permet de calculer la somme de la colonne (total des charges)
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors = 'coerce')
 
