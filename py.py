@@ -43,11 +43,16 @@ df_trie["Charges SI (Interne/Externe) validée"].fillna(0, inplace=True)
 somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
 
 # Calcul des sous-totaux par Domaine et Sous-domaine
-df_trie['Charges Domaine'] = df_trie.groupby('Domaine')['Charges SI (Interne/Externe) validée'].transform('sum')
-df_trie['Charges Sous-domaine'] = df_trie.groupby('Sous-domaine')['Charges SI (Interne/Externe) validée'].transform('sum')
+charges_domaine = df_trie.groupby('Domaine')['Charges SI (Interne/Externe) validée'].sum()
+charges_sous_domaine = df_trie.groupby('Sous-domaine')['Charges SI (Interne/Externe) validée'].sum()
 
-# Calcul du poids des sous-domaines par rapport à la somme totale
-df_trie['Poids Sous-domaine (%)'] = (df_trie['Charges Sous-domaine'] / somme_total) * 100
+# Calcul du poids des Domaines et Sous-domaines par rapport à la somme totale
+poids_domaine = (charges_domaine / somme_total) * 100
+poids_sous_domaine = (charges_sous_domaine / somme_total) * 100
+
+# Ajout du poids dans le DataFrame principal
+df_trie['Poids Domaine (%)'] = df_trie['Domaine'].map(poids_domaine)
+df_trie['Poids Sous-domaine (%)'] = df_trie['Sous-domaine'].map(poids_sous_domaine)
 
 # Ajouter la somme totale en première ligne (optionnel)
 df_trie['Somme total'] = ""
