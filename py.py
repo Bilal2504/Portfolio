@@ -26,8 +26,12 @@ df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True,
 # Nettoyage des données dans la colonne "Charges SI (Interne/Externe) validée"
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()  # Suppression des espaces superflus
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(' ', '')  # Suppression des espaces entre les chiffres
-df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '')  # Suppression des virgules (séparateurs de milliers)
-df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace('€', '')  # Suppression des symboles monétaires
+
+# Remplacement des virgules par des points pour traiter les décimales correctement
+df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
+
+# Suppression des symboles monétaires (si présents)
+df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace('€', '')
 
 # Conversion de la colonne en type numérique
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
