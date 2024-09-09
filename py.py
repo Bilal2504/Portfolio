@@ -40,12 +40,49 @@ somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
 df_trie['Somme total'] = ""
 df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
 
-# Calcul des charges totales par Domaine
-df_trie["Charges totales par Domaine"] = df_trie.groupby("Domaine")["Charges SI (Interne/Externe) validée"].transform('sum')
+# Charges par domaine
+
+# Calcul des charges totales par Domaine et ajout d'une ligne de somme pour chaque Domaine
+def ajouter_ligne_somme_par_domaine(df):
+    # Grouper par Domaine
+    groupes_sous = df.groupby("Sous-domaine")
+    groupes = df.groupby("Domaine")
+    liste_dfs = []
+    
+    for domaine, groupe in groupes:
+        for sous_domaine, groupe_sous in groupes_sous:
+            somme_domaine = groupe["Charges SI (Interne/Externe) validée"].sum()
+            somme_sous_domaine = groupe_sous["Charges SI (Interne/Externe) validée"].sum()
+        
+        # Créer une ligne de somme
+        ligne_somme = pd.DataFrame({
+            "Type": [""],
+            "Projet": [""],
+            "Domaine": [""],
+            "Sous-domaine": [""],
+            "Charges SI (Interne/Externe) validée": [""],
+            "Somme total": [""],
+            "Total domaine": [domaine],
+            "Charges par domaine": [somme_domaine],
+            "Total sous-domaine": [sous_domaine],
+            "Charges par sous-domaine": [somme_sous_domaine]
+        })
+
+        
+        # Ajouter le groupe et la ligne de somme dans une liste
+        liste_dfs.append(groupe)
+        liste_dfs.append(ligne_somme)
+    
+    # Concaténer tous les groupes et les lignes de somme dans un seul DataFrame
+    return pd.concat(liste_dfs, ignore_index=True)
+
+# Appliquer la fonction pour ajouter les lignes de somme par domaine
+df_final = ajouter_ligne_somme_par_domaine(df_trie)
+
 
 # Sauvegarde des données traitées dans un nouveau fichier CSV
-fichier_final = "copsi_mission_test_19.csv"
-df_trie.to_csv(fichier_final, index=False)
+fichier_final = "copsi_mission_test_22.csv"
+df_final.to_csv(fichier_final, index=False)
 
 # Confirmation de la création du fichier
 print(f"Les colonnes sélectionnées ont été sauvegardées dans {fichier_final}.")
