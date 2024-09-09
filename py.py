@@ -36,19 +36,48 @@ df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charge
 # Calcul de la somme totale des charges
 somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
 
-# Ajouter la somme totale en première ligne (facultatif)
+# Ajouter la somme totale en première ligne
 df_trie['Somme total'] = ""
 df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
 
-# Calcul des charges totales par Domaine
-df_trie["Charges par domaine"] = df_trie.groupby("Domaine")["Charges SI (Interne/Externe) validée"].transform('sum')
+# Fonction pour ajouter des lignes de somme pour chaque sous-domaine et domaine
+def ajouter_ligne_somme_par_domaine(df):
+    # Grouper par Domaine et Sous-domaine
+    groupes = df.groupby(["Domaine", "Sous-domaine"])
+    liste_dfs = []
+    
+    # Boucle pour ajouter les lignes de sommes par sous-domaine et domaine
+    for (domaine, sous_domaine), groupe in groupes:
+        # Calculer la somme des charges pour ce sous-domaine
+        somme_sous_domaine = groupe["Charges SI (Interne/Externe) validée"].sum()
+        
+        # Créer une ligne de somme pour le sous-domaine
+        ligne_somme_sous_domaine = pd.DataFrame({
+            "Type": [""],
+            "Projet": [""],
+            "Domaine": [domaine],
+            "Sous-domaine": [sous_domaine],
+            "Charges SI (Interne/Externe) validée": [somme_sous_domaine],
+            "Somme total": [""],
+            "Total domaine": [""],
+            "Charges par domaine": [""],
+            "Total sous-domaine": [sous_domaine],
+            "Charges par sous-domaine": [somme_sous_domaine]
+        })
+        
+        # Ajouter le groupe et la ligne de somme dans une liste
+        liste_dfs.append(groupe)
+        liste_dfs.append(ligne_somme_sous_domaine)
+    
+    # Concaténer tous les groupes et les lignes de somme dans un seul DataFrame
+    return pd.concat(liste_dfs, ignore_index=True)
 
-# Calcul des charges totales par Sous-domaine
-df_trie["Charges par sous-domaine"] = df_trie.groupby("Sous-domaine")["Charges SI (Interne/Externe) validée"].transform('sum')
+# Appliquer la fonction pour ajouter les lignes de somme par sous-domaine et domaine
+df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
 # Sauvegarde des données traitées dans un nouveau fichier CSV
 fichier_final = "copsi_mission_test_22.csv"
-df_trie.to_csv(fichier_final, index=False)
+df_final.to_csv(fichier_final, index=False)
 
 # Confirmation de la création du fichier
 print(f"Les colonnes sélectionnées ont été sauvegardées dans {fichier_final}.")
