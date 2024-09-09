@@ -40,39 +40,12 @@ somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
 df_trie['Somme total'] = ""
 df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
 
-# Calcul des charges totales par Domaine et ajout d'une ligne de somme pour chaque Domaine
-def ajouter_ligne_somme_par_domaine(df):
-    # Grouper par Domaine
-    groupes = df.groupby("Domaine")
-    liste_dfs = []
-    
-    for domaine, groupe in groupes:
-        # Calculer la somme des charges pour ce domaine
-        somme_domaine = groupe["Charges SI (Interne/Externe) validée"].sum()
-        
-        # Créer une ligne de somme
-        ligne_somme = pd.DataFrame({
-            "Type": ["Total"],
-            "Projet": [""],
-            "Domaine": [domaine],
-            "Sous-domaine": [""],
-            "Charges SI (Interne/Externe) validée": [somme_domaine],
-            "Somme total": [""]
-        })
-        
-        # Ajouter le groupe et la ligne de somme dans une liste
-        liste_dfs.append(groupe)
-        liste_dfs.append(ligne_somme)
-    
-    # Concaténer tous les groupes et les lignes de somme dans un seul DataFrame
-    return pd.concat(liste_dfs, ignore_index=True)
-
-# Appliquer la fonction pour ajouter les lignes de somme par domaine
-df_final = ajouter_ligne_somme_par_domaine(df_trie)
+# Calcul des charges totales par Domaine
+df_trie["Charges totales par Domaine"] = df_trie.groupby("Domaine")["Charges SI (Interne/Externe) validée"].transform('sum')
 
 # Sauvegarde des données traitées dans un nouveau fichier CSV
 fichier_final = "copsi_mission_test_19.csv"
-df_final.to_csv(fichier_final, index=False)
+df_trie.to_csv(fichier_final, index=False)
 
 # Confirmation de la création du fichier
 print(f"Les colonnes sélectionnées ont été sauvegardées dans {fichier_final}.")
