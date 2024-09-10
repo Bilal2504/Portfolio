@@ -1,8 +1,15 @@
 import pandas as pd
 
+# Convertir le fichier xls en csv
+read_file = pd.read_excel("20240801_etat_validation_paa_chantiers.xls")
+read_file.to_csv("20240801_etat_validation_paa_chantiers.csv", index = None, header = True)
+df = pd.DataFrame(pd.read_csv("20240801_etat_validation_paa_chantiers.csv"))
+df
+
 # Charger le fichier CSV initial
 fichier_initial = "20240801_etat_validation_paa_chantiers.csv"
 df = pd.read_csv(fichier_initial)
+
 
 # Renommage des colonnes
 colonne_extraire = {
@@ -47,16 +54,19 @@ def ajouter_ligne_somme_par_domaine(df):
         # Calcul de la somme des charges pour le domaine
         somme_domaine = groupe_domaine["Charges SI (Interne/Externe) validée"].sum()
         # Calcul du poids du domaine par rapport au SI
-        poids_domaine = somme_domaine / somme_total_si
+        poids_domaine = round((somme_domaine / somme_total_si) * 100 , 2)
         
         # Grouper par Sous-domaine pour traiter chaque sous-domaine dans ce domaine
         for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
             # Calcul de la somme des charges pour le sous-domaine
             somme_sous_domaine = groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum()
             # Calcul du poids du sous-domaine dans son domaine
-            poids_sous_domaine = somme_sous_domaine / somme_domaine
+            if (somme_domaine != 0) :
+                poids_sous_domaine = round((somme_sous_domaine / somme_domaine) * 100 , 2)
+            else:
+                poids_sous_domaine = 0.0
             # Calcul du poids du sous-domaine dans tout le SI
-            poids_sous_domaine_si = somme_sous_domaine / somme_total_si
+            poids_sous_domaine_si = round((somme_sous_domaine / somme_total_si) * 100 , 2) 
             
             # Ajouter le groupe de sous-domaine
             liste_dfs.append(groupe_sous_domaine)
@@ -66,14 +76,14 @@ def ajouter_ligne_somme_par_domaine(df):
                 "Type": [""],
                 "Projet": [""],
                 "Domaine": [""],
-                "Sous-domaine": [f"Total {sous_domaine}"],
-                "Charges SI (Interne/Externe) validée": [somme_sous_domaine],
+                "Sous-domaine": [f"{sous_domaine}"],
+                "Charges SI (Interne/Externe) validée": [""],
                 "Somme total": [""],
                 "Total domaine": [""],
                 "Total sous-domaine": [f"{somme_sous_domaine}"],
                 "Poids total par domaine": [""],
-                "Poids total par sous-domaine": [poids_sous_domaine],
-                "Poids du sous-domaine dans le SI": [poids_sous_domaine_si]
+                "Poids total par sous-domaine": [f"{poids_sous_domaine}%"],
+                "Poids du sous-domaine dans le SI": [f"{poids_sous_domaine_si}%"]
             })
             
             # Ajouter la ligne de somme du sous-domaine
@@ -83,13 +93,13 @@ def ajouter_ligne_somme_par_domaine(df):
         ligne_somme_domaine = pd.DataFrame({
             "Type": [""],
             "Projet": [""],
-            "Domaine": [f"Total {domaine}"],
+            "Domaine": [f"{domaine}"],
             "Sous-domaine": [""],
-            "Charges SI (Interne/Externe) validée": [somme_domaine],
+            "Charges SI (Interne/Externe) validée": [""],
             "Somme total": [""],
             "Total domaine": [f"{somme_domaine}"],
             "Total sous-domaine": [""],
-            "Poids total par domaine": [poids_domaine],
+            "Poids total par domaine": [f"{poids_domaine}%"],
             "Poids total par sous-domaine": [""],
             "Poids du sous-domaine dans le SI": [""]
         })
@@ -104,7 +114,7 @@ def ajouter_ligne_somme_par_domaine(df):
 df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
 # Sauvegarder les résultats dans un nouveau fichier CSV
-fichier_final = "copsi_mission_test_25.csv"
+fichier_final = "copsi_mission_test_30.csv"
 df_final.to_csv(fichier_final, index=False)
 
 # Confirmation de la création du fichier
