@@ -25,57 +25,61 @@ df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True,
 
 # Nettoyage des données dans la colonne "Charges SI (Interne/Externe) validée"
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()
-# Remplacement des virgules par des points pour traiter les décimales correctement
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
-# Remplacement des valeurs vides par un 0
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].fillna(0)
-
-# Conversion de la colonne en type numérique
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
 
-# Calcul de la somme totale des charges
-somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
-
-# Ajouter la somme totale en première ligne
-df_trie['Somme total'] = ""
-df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
-
-# Fonction pour ajouter des lignes de somme pour chaque sous-domaine et domaine
+# Fonction pour ajouter des lignes de somme par sous-domaine et domaine
 def ajouter_ligne_somme_par_domaine(df):
-    # Grouper par Domaine et Sous-domaine
-    groupes = df.groupby(["Domaine", "Sous-domaine"])
+    # Liste pour stocker les résultats intermédiaires
     liste_dfs = []
     
-    # Boucle pour ajouter les lignes de sommes par sous-domaine et domaine
-    for (domaine, sous_domaine), groupe in groupes:
-        # Calculer la somme des charges pour ce sous-domaine
-        somme_sous_domaine = groupe["Charges SI (Interne/Externe) validée"].sum()
+    # Grouper par Domaine pour traiter chaque domaine individuellement
+    for domaine, groupe_domaine in df.groupby("Domaine"):
+        # Grouper par Sous-domaine pour traiter chaque sous-domaine dans ce domaine
+        for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
+            # Calculer la somme des charges pour ce sous-domaine
+            somme_sous_domaine = groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum()
+            
+            # Ajouter le groupe de sous-domaine
+            liste_dfs.append(groupe_sous_domaine)
+            
+            # Créer une ligne de somme pour le sous-domaine
+            ligne_somme_sous_domaine = pd.DataFrame({
+                "Type": [""],
+                "Projet": [""],
+                "Domaine": [domaine],
+                "Sous-domaine": [f"Total {sous_domaine}"],
+                "Charges SI (Interne/Externe) validée": [somme_sous_domaine],
+                "Somme total": [""]
+            })
+            
+            # Ajouter la ligne de somme du sous-domaine
+            liste_dfs.append(ligne_somme_sous_domaine)
         
-        # Créer une ligne de somme pour le sous-domaine
-        ligne_somme_sous_domaine = pd.DataFrame({
+        # Calculer la somme des charges pour le domaine
+        somme_domaine = groupe_domaine["Charges SI (Interne/Externe) validée"].sum()
+        
+        # Créer une ligne de somme pour le domaine
+        ligne_somme_domaine = pd.DataFrame({
             "Type": [""],
             "Projet": [""],
-            "Domaine": [domaine],
-            "Sous-domaine": [sous_domaine],
-            "Charges SI (Interne/Externe) validée": [somme_sous_domaine],
-            "Somme total": [""],
-            "Total domaine": [""],
-            "Charges par domaine": [""],
-            "Total sous-domaine": [sous_domaine],
-            "Charges par sous-domaine": [somme_sous_domaine]
+            "Domaine": [f"Total {domaine}"],
+            "Sous-domaine": [""],
+            "Charges SI (Interne/Externe) validée": [somme_domaine],
+            "Somme total": [""]
         })
         
-        # Ajouter le groupe et la ligne de somme dans une liste
-        liste_dfs.append(groupe)
-        liste_dfs.append(ligne_somme_sous_domaine)
+        # Ajouter la ligne de somme du domaine
+        liste_dfs.append(ligne_somme_domaine)
     
-    # Concaténer tous les groupes et les lignes de somme dans un seul DataFrame
+    # Concaténer toutes les parties pour former le DataFrame final
     return pd.concat(liste_dfs, ignore_index=True)
 
-# Appliquer la fonction pour ajouter les lignes de somme par sous-domaine et domaine
+# Appliquer la fonction pour ajouter les lignes de somme
 df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
-# Sauvegarde des données traitées dans un nouveau fichier CSV
+# Sauvegarder les résultats dans un nouveau fichier CSV
 fichier_final = "copsi_mission_test_22.csv"
 df_final.to_csv(fichier_final, index=False)
 
