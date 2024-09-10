@@ -24,31 +24,39 @@ df_filtre = df_selection[df_selection["Type"] == "Projet"]
 df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True, True])
 
 # Nettoyage des données dans la colonne "Charges SI (Interne/Externe) validée"
-#(remplace les "," par des "." , les valeurs vide par des "0" et transforme toutes les valeur en valeur numerique)
+# (remplace les "," par des "." , les valeurs vide par des "0" et transforme toutes les valeurs en valeurs numériques)
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].fillna(0)
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
 
-# Calcul de la somme totale des charges
-somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
+# Calcul de la somme totale des charges pour tout le SI
+somme_total_si = df_trie["Charges SI (Interne/Externe) validée"].sum()
 
 # Ajouter la somme totale en première ligne
 df_trie['Somme total'] = ""
-df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
+df_trie.loc[df_trie.index[0], "Somme total"] = somme_total_si
 
-
-# Fonction pour ajouter des lignes de somme par sous-domaine et domaine
+# Fonction pour ajouter des lignes de somme par sous-domaine et domaine, et calculer les poids
 def ajouter_ligne_somme_par_domaine(df):
     # Liste pour stocker les résultats intermédiaires
     liste_dfs = []
     
     # Grouper par Domaine pour traiter chaque domaine individuellement
     for domaine, groupe_domaine in df.groupby("Domaine"):
+        # Calcul de la somme des charges pour le domaine
+        somme_domaine = groupe_domaine["Charges SI (Interne/Externe) validée"].sum()
+        # Calcul du poids du domaine par rapport au SI
+        poids_domaine = somme_domaine / somme_total_si
+        
         # Grouper par Sous-domaine pour traiter chaque sous-domaine dans ce domaine
         for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
-            # Calculer la somme des charges pour un sous-domaine
+            # Calcul de la somme des charges pour le sous-domaine
             somme_sous_domaine = groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum()
+            # Calcul du poids du sous-domaine dans son domaine
+            poids_sous_domaine = somme_sous_domaine / somme_domaine
+            # Calcul du poids du sous-domaine dans tout le SI
+            poids_sous_domaine_si = somme_sous_domaine / somme_total_si
             
             # Ajouter le groupe de sous-domaine
             liste_dfs.append(groupe_sous_domaine)
@@ -58,8 +66,8 @@ def ajouter_ligne_somme_par_domaine(df):
                 "Type": [""],
                 "Projet": [""],
                 "Domaine": [""],
-                "Sous-domaine": [sous_domaine],
-                "Charges SI (Interne/Externe) validée": [""],
+                "Sous-domaine": [f"Total {sous_domaine}"],
+                "Charges SI (Interne/Externe) validée": [somme_sous_domaine],
                 "Somme total": [""],
                 "Total domaine": [""],
                 "Total sous-domaine": [f"{somme_sous_domaine}"],
@@ -71,16 +79,13 @@ def ajouter_ligne_somme_par_domaine(df):
             # Ajouter la ligne de somme du sous-domaine
             liste_dfs.append(ligne_somme_sous_domaine)
         
-        # Calculer la somme des charges pour le domaine
-        somme_domaine = groupe_domaine["Charges SI (Interne/Externe) validée"].sum()
-        
         # Créer une ligne de somme pour le domaine
         ligne_somme_domaine = pd.DataFrame({
             "Type": [""],
             "Projet": [""],
-            "Domaine": [domaine],
+            "Domaine": [f"Total {domaine}"],
             "Sous-domaine": [""],
-            "Charges SI (Interne/Externe) validée": [""],
+            "Charges SI (Interne/Externe) validée": [somme_domaine],
             "Somme total": [""],
             "Total domaine": [f"{somme_domaine}"],
             "Total sous-domaine": [""],
