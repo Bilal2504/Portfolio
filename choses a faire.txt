@@ -1,6 +1,33 @@
-A faire:
--Page certification
--page cv
--page projet réalisé
--changer les images 
--background dynamique (pour a propos) https://www.youtube.com/watch?v=NTqmimXu1XM&ab_channel=OnlineTutorials
+import pandas as pd
+
+# Charger le fichier CSV initial
+fichier_initial = "20240801_etat_validation_paa_chantiers.csv"
+df = pd.read_csv(fichier_initial)
+
+# Fusionner la première et la deuxième ligne de chaque colonne
+def fusionner_lignes(df):
+    # Boucler à travers chaque colonne et concaténer les deux premières lignes
+    for col in df.columns:
+        if df[col].dtype == 'object':
+            # Pour les colonnes texte, on concatène les valeurs
+            df.iloc[0, df.columns.get_loc(col)] = str(df.iloc[0, df.columns.get_loc(col)]) + ' ' + str(df.iloc[1, df.columns.get_loc(col)])
+        else:
+            # Pour les colonnes numériques, on additionne les valeurs
+            df.iloc[0, df.columns.get_loc(col)] = df.iloc[0, df.columns.get_loc(col)] + df.iloc[1, df.columns.get_loc(col)]
+
+    # Supprimer la deuxième ligne
+    df = df.drop(df.index[1])
+    return df
+
+# Appliquer la fonction de fusion
+df_fusionne = fusionner_lignes(df)
+
+# Afficher le DataFrame après la fusion des lignes
+print(df_fusionne.head())
+
+# Sauvegarder dans un nouveau fichier CSV
+fichier_fusionne = "fichier_fusionne.csv"
+df_fusionne.to_csv(fichier_fusionne, index=False)
+
+# Confirmation de la création du fichier
+print(f"Le fichier avec les lignes fusionnées a été sauvegardé dans {fichier_fusionne}.")
