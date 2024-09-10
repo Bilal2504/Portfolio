@@ -4,7 +4,7 @@ import pandas as pd
 fichier_initial = "20240801_etat_validation_paa_chantiers.csv"
 df = pd.read_csv(fichier_initial)
 
-# Paramétrage du renommage des colonnes
+# Renommage des colonnes
 colonne_extraire = {
     "Ligne Projet ou Chantier": "Type",
     "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
@@ -24,10 +24,19 @@ df_filtre = df_selection[df_selection["Type"] == "Projet"]
 df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True, True])
 
 # Nettoyage des données dans la colonne "Charges SI (Interne/Externe) validée"
+#(remplace les "," par des "." , les valeurs vide par des "0" et transforme toutes les valeur en valeur numerique)
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].fillna(0)
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
+
+# Calcul de la somme totale des charges
+somme_total = df_trie["Charges SI (Interne/Externe) validée"].sum()
+
+# Ajouter la somme totale en première ligne
+df_trie['Somme total'] = ""
+df_trie.loc[df_trie.index[0], "Somme total"] = somme_total
+
 
 # Fonction pour ajouter des lignes de somme par sous-domaine et domaine
 def ajouter_ligne_somme_par_domaine(df):
@@ -38,7 +47,7 @@ def ajouter_ligne_somme_par_domaine(df):
     for domaine, groupe_domaine in df.groupby("Domaine"):
         # Grouper par Sous-domaine pour traiter chaque sous-domaine dans ce domaine
         for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
-            # Calculer la somme des charges pour ce sous-domaine
+            # Calculer la somme des charges pour un sous-domaine
             somme_sous_domaine = groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum()
             
             # Ajouter le groupe de sous-domaine
@@ -48,10 +57,15 @@ def ajouter_ligne_somme_par_domaine(df):
             ligne_somme_sous_domaine = pd.DataFrame({
                 "Type": [""],
                 "Projet": [""],
-                "Domaine": [domaine],
-                "Sous-domaine": [f"Total {sous_domaine}"],
-                "Charges SI (Interne/Externe) validée": [somme_sous_domaine],
-                "Somme total": [""]
+                "Domaine": [""],
+                "Sous-domaine": [sous_domaine],
+                "Charges SI (Interne/Externe) validée": [""],
+                "Somme total": [""],
+                "Total domaine": [""],
+                "Total sous-domaine": [f"{somme_sous_domaine}"],
+                "Poids total par domaine": [""],
+                "Poids total par sous-domaine": [poids_sous_domaine],
+                "Poids du sous-domaine dans le SI": [poids_sous_domaine_si]
             })
             
             # Ajouter la ligne de somme du sous-domaine
@@ -64,10 +78,15 @@ def ajouter_ligne_somme_par_domaine(df):
         ligne_somme_domaine = pd.DataFrame({
             "Type": [""],
             "Projet": [""],
-            "Domaine": [f"Total {domaine}"],
+            "Domaine": [domaine],
             "Sous-domaine": [""],
-            "Charges SI (Interne/Externe) validée": [somme_domaine],
-            "Somme total": [""]
+            "Charges SI (Interne/Externe) validée": [""],
+            "Somme total": [""],
+            "Total domaine": [f"{somme_domaine}"],
+            "Total sous-domaine": [""],
+            "Poids total par domaine": [poids_domaine],
+            "Poids total par sous-domaine": [""],
+            "Poids du sous-domaine dans le SI": [""]
         })
         
         # Ajouter la ligne de somme du domaine
@@ -80,7 +99,7 @@ def ajouter_ligne_somme_par_domaine(df):
 df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
 # Sauvegarder les résultats dans un nouveau fichier CSV
-fichier_final = "copsi_mission_test_22.csv"
+fichier_final = "copsi_mission_test_25.csv"
 df_final.to_csv(fichier_final, index=False)
 
 # Confirmation de la création du fichier
