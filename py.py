@@ -1,17 +1,13 @@
 import pandas as pd
 
-# Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
-def fusionner_deux_premieres_lignes(df):
-    # Créer un nouveau DataFrame en fusionnant les deux premières lignes de chaque colonne
-    new_columns = []
+# Fonction pour fusionner les valeurs des deux premières lignes dans chaque colonne
+def fusionner_lignes(df):
     for col in df.columns:
-        # Fusionner la première et la deuxième ligne de chaque colonne avec un espace
-        fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()  
-        new_columns.append(fusion)
+        # Fusionner les valeurs de la première et de la deuxième ligne de chaque colonne
+        df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()
     
-    # Supprimer les deux premières lignes et renommer les colonnes
-    df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les deux premières lignes
-    df.columns = new_columns  # Renomme les colonnes avec les valeurs fusionnées
+    # Supprimer la deuxième ligne, car elle est maintenant fusionnée avec la première
+    df = df.drop(1).reset_index(drop=True)
     
     return df
 
@@ -19,7 +15,7 @@ def fusionner_deux_premieres_lignes(df):
 read_file = pd.read_excel("20240801_etat_validation_paa_chantiers.xls")
 
 # Appliquer la fonction de fusion des deux premières lignes
-df_fusion = fusionner_deux_premieres_lignes(read_file)
+df_fusion = fusionner_lignes(read_file)
 
 # Sauvegarder le fichier après avoir fusionné les deux premières lignes
 df_fusion.to_csv("20240801_etat_validation_paa_chantiers_fusionne.csv", index=False, header=True)
