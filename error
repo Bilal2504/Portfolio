@@ -1,0 +1,1439 @@
+Python 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+
+= RESTART: C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 58.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 547.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 605.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 101.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 547.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 648.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 41.5' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 224.5' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan 266.0' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+Warning (from warnings module):
+  File "C:\Users\bdrame01\Desktop\Code python\Porgramme final\main.py", line 7
+    df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+Les colonnes sélectionnées ont été sauvegardées dans copsi_mission_test_30.csv.
