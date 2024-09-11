@@ -1,11 +1,12 @@
 import pandas as pd
 
-# Fonction pour fusionner les deux premières lignes de chaque colonne
+# Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
 def fusionner_deux_premieres_lignes(df):
     # Créer un nouveau DataFrame en fusionnant les deux premières lignes de chaque colonne
     new_columns = []
     for col in df.columns:
-        fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()  # Fusionner les deux premières lignes avec un espace
+        # Fusionner la première et la deuxième ligne de chaque colonne avec un espace
+        fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()  
         new_columns.append(fusion)
     
     # Supprimer les deux premières lignes et renommer les colonnes
