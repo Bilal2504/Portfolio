@@ -1,17 +1,32 @@
 import pandas as pd
 
-# Convertir le fichier xls en csv
+# Fonction pour fusionner les deux premières lignes de chaque colonne
+def fusionner_deux_premieres_lignes(df):
+    # Créer un nouveau DataFrame en fusionnant les deux premières lignes de chaque colonne
+    new_columns = []
+    for col in df.columns:
+        fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()  # Fusionner les deux premières lignes avec un espace
+        new_columns.append(fusion)
+    
+    # Supprimer les deux premières lignes et renommer les colonnes
+    df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les deux premières lignes
+    df.columns = new_columns  # Renomme les colonnes avec les valeurs fusionnées
+    
+    return df
+
+# Convertir le fichier xls en dataframe
 read_file = pd.read_excel("20240801_etat_validation_paa_chantiers.xls")
-read_file.to_csv("20240801_etat_validation_paa_chantiers.csv", index = None, header = True)
-df = pd.DataFrame(pd.read_csv("20240801_etat_validation_paa_chantiers.csv"))
-df
 
-# Charger le fichier CSV initial
-fichier_initial = "20240801_etat_validation_paa_chantiers.csv"
-df = pd.read_csv(fichier_initial)
+# Appliquer la fonction de fusion des deux premières lignes
+df_fusion = fusionner_deux_premieres_lignes(read_file)
 
+# Sauvegarder le fichier après avoir fusionné les deux premières lignes
+df_fusion.to_csv("20240801_etat_validation_paa_chantiers_fusionne.csv", index=False, header=True)
 
-# Renommage des colonnes
+# Charger le fichier CSV après fusion
+df = pd.read_csv("20240801_etat_validation_paa_chantiers_fusionne.csv")
+
+# Renommage des colonnes comme dans l'exemple précédent
 colonne_extraire = {
     "Ligne Projet ou Chantier": "Type",
     "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
@@ -31,7 +46,6 @@ df_filtre = df_selection[df_selection["Type"] == "Projet"]
 df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True, True])
 
 # Nettoyage des données dans la colonne "Charges SI (Interne/Externe) validée"
-# (remplace les "," par des "." , les valeurs vide par des "0" et transforme toutes les valeurs en valeurs numériques)
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].fillna(0)
@@ -44,34 +58,21 @@ somme_total_si = df_trie["Charges SI (Interne/Externe) validée"].sum()
 df_trie['Somme total'] = ""
 df_trie.loc[df_trie.index[0], "Somme total"] = somme_total_si
 
-# Fonction pour ajouter des lignes de somme par sous-domaine et domaine, et calculer les poids
+# Fonction pour ajouter des lignes de somme par sous-domaine et domaine
 def ajouter_ligne_somme_par_domaine(df):
-    # Liste pour stocker les résultats intermédiaires
     liste_dfs = []
     
-    # Grouper par Domaine pour traiter chaque domaine individuellement
     for domaine, groupe_domaine in df.groupby("Domaine"):
-        # Calcul de la somme des charges pour le domaine
         somme_domaine = groupe_domaine["Charges SI (Interne/Externe) validée"].sum()
-        # Calcul du poids du domaine par rapport au SI
         poids_domaine = round((somme_domaine / somme_total_si) * 100 , 2)
         
-        # Grouper par Sous-domaine pour traiter chaque sous-domaine dans ce domaine
         for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
-            # Calcul de la somme des charges pour le sous-domaine
             somme_sous_domaine = groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum()
-            # Calcul du poids du sous-domaine dans son domaine
-            if (somme_domaine != 0) :
-                poids_sous_domaine = round((somme_sous_domaine / somme_domaine) * 100 , 2)
-            else:
-                poids_sous_domaine = 0.0
-            # Calcul du poids du sous-domaine dans tout le SI
+            poids_sous_domaine = round((somme_sous_domaine / somme_domaine) * 100 , 2) if somme_domaine != 0 else 0.0
             poids_sous_domaine_si = round((somme_sous_domaine / somme_total_si) * 100 , 2) 
             
-            # Ajouter le groupe de sous-domaine
             liste_dfs.append(groupe_sous_domaine)
             
-            # Créer une ligne de somme pour le sous-domaine
             ligne_somme_sous_domaine = pd.DataFrame({
                 "Type": [""],
                 "Projet": [""],
@@ -86,10 +87,8 @@ def ajouter_ligne_somme_par_domaine(df):
                 "Poids du sous-domaine dans le SI": [f"{poids_sous_domaine_si}%"]
             })
             
-            # Ajouter la ligne de somme du sous-domaine
             liste_dfs.append(ligne_somme_sous_domaine)
         
-        # Créer une ligne de somme pour le domaine
         ligne_somme_domaine = pd.DataFrame({
             "Type": [""],
             "Projet": [""],
@@ -104,10 +103,8 @@ def ajouter_ligne_somme_par_domaine(df):
             "Poids du sous-domaine dans le SI": [""]
         })
         
-        # Ajouter la ligne de somme du domaine
         liste_dfs.append(ligne_somme_domaine)
     
-    # Concaténer toutes les parties pour former le DataFrame final
     return pd.concat(liste_dfs, ignore_index=True)
 
 # Appliquer la fonction pour ajouter les lignes de somme
