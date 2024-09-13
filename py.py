@@ -4,7 +4,7 @@ import pandas as pd
 def fusionner_lignes(df):
     for col in df.columns:
         # Fusionner les valeurs de la première et de la deuxième ligne de chaque colonne
-        df[col].iloc[0] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
+        df.loc[0, col] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
     
     # Supprimer la deuxième ligne, car elle est maintenant fusionnée avec la première
     df = df.drop([1]).reset_index(drop=True)
@@ -15,12 +15,10 @@ def fusionner_lignes(df):
 read_file = pd.read_excel("20240801_etat_validation_paa_chantiers.xls")
 
 # Appliquer la fonction de fusion des deux premières lignes
-
 df_fusion = fusionner_lignes(read_file)
 
 # Sauvegarder le fichier après avoir fusionné les deux premières lignes
-
-read_file.to_csv("20240801_etat_validation_paa_chantiers.csv", index=False, header=True)
+df_fusion.to_csv("20240801_etat_validation_paa_chantiers.csv", index=False, header=True)
 
 # Charger le fichier CSV après fusion
 df = pd.read_csv("20240801_etat_validation_paa_chantiers.csv")
