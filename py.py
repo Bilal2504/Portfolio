@@ -6,7 +6,7 @@ def fusionner_lignes(df):
     # Créer un nouveau DataFrame en fusionnant les deux premières lignes de chaque colonne
     new_columns = []
     for col in df.columns:
-        # Fusionner la première et la deuxième ligne de chaque colonne avec un espace
+        # Fusionner la première et la deuxième ligne de chaque colonne avec un espace si la deuxième ligne est vide alors ne prendre que la première ligne
         if ([col].iloc[1] == ''):
             fusion = f"{str(df[col].iloc[0])}".strip()
         else:
