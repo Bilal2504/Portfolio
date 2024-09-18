@@ -1,27 +1,36 @@
 import pandas as pd
 
-# Fonction pour fusionner les valeurs des deux premières lignes dans chaque colonne
+
+#Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
 def fusionner_lignes(df):
+    # Créer un nouveau DataFrame en fusionnant les deux premières lignes de chaque colonne
+    new_columns = []
     for col in df.columns:
-        # Fusionner les valeurs de la première et de la deuxième ligne de chaque colonne
-        df.loc[0, col] = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}"
-    
-    # Supprimer la deuxième ligne, car elle est maintenant fusionnée avec la première
-    df = df.drop([1]).reset_index(drop=True)
-    
+        # Fusionner la première et la deuxième ligne de chaque colonne avec un espace
+        if ([col].iloc[1] == ''):
+            fusion = f"{str(df[col].iloc[0])}".strip()
+        else:
+            fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()  
+        new_columns.append(fusion)
+
+    # Supprimer les deux premières lignes et renommer les colonnes
+    df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les deux premières lignes
+    df.columns = new_columns  # Renomme les colonnes avec les valeurs fusionnées
+
     return df
 
+
 # Convertir le fichier xls en dataframe
-read_file = pd.read_excel("20240801_etat_validation_paa_chantiers.xls")
+read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
 
 # Appliquer la fonction de fusion des deux premières lignes
 df_fusion = fusionner_lignes(read_file)
 
 # Sauvegarder le fichier après avoir fusionné les deux premières lignes
-df_fusion.to_csv("20240801_etat_validation_paa_chantiers.csv", index=False, header=True)
+df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False, header=True)
 
 # Charger le fichier CSV après fusion
-df = pd.read_csv("20240801_etat_validation_paa_chantiers.csv")
+df = pd.read_csv("20240902_etat_validation_paa_chantiers.csv")
 
 # Renommage des colonnes comme dans l'exemple précédent
 colonne_extraire = {
@@ -64,7 +73,7 @@ def ajouter_ligne_somme_par_domaine(df):
         poids_domaine = round((somme_domaine / somme_total_si) * 100 , 2)
         
         for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
-            somme_sous_domaine = groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum()
+            somme_sous_domaine = round(groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum(), 2)
             if (somme_domaine != 0):
                 poids_sous_domaine = round((somme_sous_domaine / somme_domaine) * 100 , 2)
             else:
@@ -111,7 +120,7 @@ def ajouter_ligne_somme_par_domaine(df):
 df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
 # Sauvegarder les résultats dans un nouveau fichier CSV
-fichier_final = "copsi_mission_test_30.csv"
+fichier_final = "copsi_mission_20240918.csv"
 df_final.to_csv(fichier_final, index=False)
 
 # Confirmation de la création du fichier
