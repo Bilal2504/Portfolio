@@ -1,24 +1,24 @@
 import pandas as pd
 
-
-#Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
+# Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
 def fusionner_lignes(df):
-    # Créer un nouveau DataFrame en fusionnant les deux premières lignes de chaque colonne
+    # Créer une nouvelle liste de colonnes fusionnées
     new_columns = []
+    
     for col in df.columns:
-        # Fusionner la première et la deuxième ligne de chaque colonne avec un espace si la deuxième ligne est vide alors ne prendre que la première ligne
-        if ([col].iloc[1] == ''):
+        # Fusionner la première et la deuxième ligne de chaque colonne
+        if pd.isna(df[col].iloc[1]) or df[col].iloc[1] == '':
             fusion = f"{str(df[col].iloc[0])}".strip()
         else:
-            fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()  
+            fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()
+        
         new_columns.append(fusion)
-
+    
     # Supprimer les deux premières lignes et renommer les colonnes
     df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les deux premières lignes
     df.columns = new_columns  # Renomme les colonnes avec les valeurs fusionnées
 
     return df
-
 
 # Convertir le fichier xls en dataframe
 read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
@@ -74,10 +74,10 @@ def ajouter_ligne_somme_par_domaine(df):
         
         for sous_domaine, groupe_sous_domaine in groupe_domaine.groupby("Sous-domaine"):
             somme_sous_domaine = round(groupe_sous_domaine["Charges SI (Interne/Externe) validée"].sum(), 2)
-            if (somme_domaine != 0):
+            if somme_domaine != 0:
                 poids_sous_domaine = round((somme_sous_domaine / somme_domaine) * 100 , 2)
             else:
-                0.0
+                poids_sous_domaine = 0.0
             poids_sous_domaine_si = round((somme_sous_domaine / somme_total_si) * 100 , 2) 
             
             liste_dfs.append(groupe_sous_domaine)
