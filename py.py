@@ -1,8 +1,6 @@
-Je veux modifier la fonction fusionner_lignes elle me fusionne la ligne 2 et 3 car elle supprime la 1 ere ligne et décale la 2 eme ligne a la premiere et la 3 eme a la 2 eme ce qui me fausse la fusion je veux fusionner la première ligne et la deuxieme ligne et rajouter la ligne fusionner en 3 eme ligne sans supprimer la premiere et deuxieme ligne pour le moment
-
 import pandas as pd
 
-# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes et supprimer les deux premières lignes
+# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes sans supprimer les deux premières lignes
 def fusionner_lignes(df):
     # Créer une nouvelle liste de colonnes fusionnées
     new_columns = []
@@ -18,13 +16,9 @@ def fusionner_lignes(df):
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
-    # Insérer la fusion comme première ligne
-    df.loc[-1] = new_columns  # Ajoute la ligne fusionnée au DataFrame
-    df.index = df.index + 1   # Incrémenter les indices pour insérer la nouvelle ligne au début
-    df = df.sort_index()      # Réorganiser les indices pour placer la nouvelle ligne en première position
-    
-    # Supprimer les deux premières lignes d'origine (lignes 0 et 1 avant ajout de la ligne fusionnée)
-    df = df.drop([1, 2]).reset_index(drop=True)
+    # Insérer la ligne fusionnée en troisième position (index 2)
+    df.loc[2.5] = new_columns  # Ajoute la ligne fusionnée au DataFrame avec un index temporaire
+    df = df.sort_index().reset_index(drop=True)  # Réorganiser les indices et réinitialiser les index
     
     return df
 
