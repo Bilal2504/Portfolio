@@ -6,10 +6,11 @@ def fusionner_lignes(df):
     new_columns = []
     
     for col in df.columns:
-        # Fusionner la première et la deuxième ligne de chaque colonne
+        # Si la deuxième ligne est vide, laisser la colonne vide
         if pd.isna(df[col].iloc[1]) or df[col].iloc[1] == '':
-            fusion = f"{str(df[col].iloc[0])}".strip()
+            fusion = ""
         else:
+            # Si la deuxième ligne a une valeur, on fusionne les deux lignes
             fusion = f"{str(df[col].iloc[0])} {str(df[col].iloc[1])}".strip()
         
         new_columns.append(fusion)
