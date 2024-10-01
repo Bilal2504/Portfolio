@@ -1,30 +1,31 @@
 import pandas as pd
 
-# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes sans supprimer les deux premières lignes
+# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes sans décaler les autres lignes
 def fusionner_lignes(df):
-    # Créer une liste qui stockera les valeurs fusionnées des colonnes
+    # Créer une nouvelle liste de colonnes fusionnées
     new_columns = []
     
-    # Parcourir chaque colonne du DataFrame
     for col in df.columns:
-        # Récupérer les valeurs des deux premières lignes pour la colonne actuelle
-        ligne_1 = str(df.iloc[0][col]) if not pd.isna(df.iloc[0][col]) else ""
-        ligne_2 = str(df.iloc[1][col]) if not pd.isna(df.iloc[1][col]) else ""
+        # Fusionner la première et la deuxième ligne, même si l'une des deux est vide
+        ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
+        ligne_2 = str(df[col].iloc[1]).strip() if not pd.isna(df[col].iloc[1]) else ""
         
-        # Fusionner les deux lignes avec un espace entre elles, si les deux ne sont pas vides
+        # Fusionner les deux lignes avec un espace entre elles
         fusion = f"{ligne_1} {ligne_2}".strip()
-        
+    
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
-    # Ajouter la ligne fusionnée en troisième position (index 2)
-    # On utilise `loc` pour insérer la nouvelle ligne et `sort_index` pour réorganiser les lignes
-    df.loc[2] = new_columns
-    df = df.sort_index().reset_index(drop=True)
+    # Ajouter la nouvelle ligne fusionnée à la fin du DataFrame
+    df.loc[len(df)] = new_columns
+    
+    # Réorganiser la nouvelle ligne en troisième position
+    # On la déplace après les deux premières lignes originales
+    df = pd.concat([df.iloc[:2], df.iloc[[-1]], df.iloc[2:-1]]).reset_index(drop=True)
     
     return df
 
-# Convertir le fichier xls en dataframe (remplacer par le bon chemin)
+# Convertir le fichier xls en dataframe
 read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
 
 # Appliquer la fonction de fusion des deux premières lignes
@@ -36,7 +37,7 @@ df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False, head
 # Charger le fichier CSV après fusion
 df = pd.read_csv("20240902_etat_validation_paa_chantiers.csv")
 
-# Renommage des colonnes
+# Renommage des colonnes comme dans l'exemple précédent
 colonne_extraire = {
     "Ligne Projet ou Chantier": "Type",
     "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
@@ -112,7 +113,6 @@ def ajouter_ligne_somme_par_domaine(df):
             "Total domaine": [f"{somme_domaine}"],
             "Total sous-domaine": [""],
             "Poids total par domaine": [f"{poids_domaine}%"],
-            "Poids total par sous-domaine": [""],
             "Poids du sous-domaine dans le SI": [""]
         })
         
