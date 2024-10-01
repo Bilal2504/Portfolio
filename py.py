@@ -1,4 +1,4 @@
-Supprimmer les caractère "unnamed: "[chiffre]"" de la première et la deuxième ligne
+Supprimmer les caractère "unnamed: "[chiffre]"" de la première et la deuxième ligne et laisser un champ vide
 
 import pandas as pd
 
