@@ -1,9 +1,10 @@
-Supprimmer les caractère "unnamed: "[chiffre]"" de la première et la deuxième ligne et laisser un champ vide
-
 import pandas as pd
 
 # Function to merge the header row with the first data row
 def fusionner_header_ligne(df):
+    # Remove columns with "Unnamed" in their name
+    df.columns = [col if not col.startswith("Unnamed:") else "" for col in df.columns]
+    
     # Get the current header row (column names)
     header_row = list(df.columns)
     
@@ -11,7 +12,7 @@ def fusionner_header_ligne(df):
     first_data_row = df.iloc[0]
     
     # Merge the header row and the first data row
-    new_header = [f"{header} {data}".strip() for header, data in zip(header_row, first_data_row)]
+    new_header = [f"{header} {data}".strip() if header else "" for header, data in zip(header_row, first_data_row)]
     
     # Assign the merged row as the new column names
     df.columns = new_header
@@ -35,8 +36,8 @@ df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False)
 colonne_extraire = {
     "Ligne Projet ou Chantier": "Type",
     "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
-    "Unnamed: 3 Macro-Domaine": "Domaine",
-    "Unnamed: 4 Domaine": "Sous-domaine",
+    "Macro-Domaine": "Domaine",
+    "Domaine": "Sous-domaine",
     "Charges Structure MOAE/MOE Valide JH": "Charges SI (Interne/Externe) validée"
 }
 
