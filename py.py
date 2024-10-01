@@ -7,17 +7,16 @@ def fusionner_lignes(df):
     
     for col in df.columns:
         # Fusionner la première et la deuxième ligne, même si l'une des deux est vide
-        ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
-        ligne_2 = str(df[col].iloc[1]).strip() if not pd.isna(df[col].iloc[1]) else ""
+        ligne = str(df.iloc[:1, 0:]).strip() if not pd.isna(df[col].iloc[0:1]) else ""
         
         # Fusionner les deux lignes avec un espace entre elles
-        fusion = f"{ligne_1} {ligne_2}".strip()
+        fusion = f"{ligne}".strip()
     
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
     # Insérer la ligne fusionnée en troisième position (index 2)
-    df.loc[2.5] = new_columns  # Ajoute la ligne fusionnée au DataFrame avec un index temporaire
+    df.loc[1] = new_columns  # Ajoute la ligne fusionnée au DataFrame avec un index temporaire
     df = df.sort_index().reset_index(drop=True)  # Réorganiser les indices et réinitialiser les index
     
     return df
