@@ -1,21 +1,6 @@
-J'ai ça
-Lundi   Mardi   Mercredi
-Mars    Avril   Mai
-17      16      15
-
-Et je voudrais obtenir
-Lundi           Mardi           Mercredi
-Mars            Avril           Mai
-Lundi Mars      Mardi Avril     Mercredi Mai
-17              16              15
-
-Puis par la suite supprimer les deux première ligne pour obtenir
-Lundi Mars      Mardi Avril     Mercredi Mai
-17              16              15
-
 import pandas as pd
 
-# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes sans supprimer les deux premières lignes
+# Fonction pour fusionner les deux premières lignes et ensuite les supprimer
 def fusionner_lignes(df):
     # Créer une liste qui stockera les valeurs fusionnées des colonnes
     new_columns = []
@@ -32,10 +17,13 @@ def fusionner_lignes(df):
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
-    # Ajouter la ligne fusionnée en troisième position (index 2)
-    # On utilise `loc` pour insérer la nouvelle ligne et `sort_index` pour réorganiser les lignes
-    df.loc[1] = new_columns
-    df = df.sort_index().reset_index(drop=True)
+    # Ajouter la ligne fusionnée en tant que première ligne
+    df.loc[-1] = new_columns  # Ajouter une nouvelle ligne en position -1
+    df.index = df.index + 1  # Décaler les index
+    df = df.sort_index()  # Réorganiser le DataFrame
+
+    # Supprimer les deux premières lignes d'origine
+    df = df.drop([1, 2], axis=0).reset_index(drop=True)
     
     return df
 
