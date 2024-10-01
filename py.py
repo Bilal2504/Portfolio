@@ -12,7 +12,7 @@
 5785                   Chantier  ...                       NaN
 
 [5786 rows x 57 columns]
-Voici pourquoi il y'a une erreur corrige
+Voici pourquoi il y'a une erreur comment acceder a la ligne titre sur calc corrige
 import pandas as pd
 
 # Fonction pour fusionner les deux premières lignes et ensuite les supprimer
