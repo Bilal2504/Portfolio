@@ -1,9 +1,17 @@
 import pandas as pd
+import re
 
 # Function to merge the header row with the first data row
 def fusionner_header_ligne(df):
-    # Remove columns with "Unnamed" in their name
-    df.columns = [col if not col.startswith("Unnamed:") else "" for col in df.columns]
+    # Function to clean 'Unnamed' columns and keep any meaningful data
+    def nettoyer_colonne(col):
+        if col.startswith("Unnamed:"):
+            # Extract any meaningful text after 'Unnamed: [chiffre]'
+            return re.sub(r'Unnamed: \d+ ', '', col).strip()
+        return col
+    
+    # Clean the column names by removing 'Unnamed' and keeping meaningful data
+    df.columns = [nettoyer_colonne(col) for col in df.columns]
     
     # Get the current header row (column names)
     header_row = list(df.columns)
@@ -12,7 +20,7 @@ def fusionner_header_ligne(df):
     first_data_row = df.iloc[0]
     
     # Merge the header row and the first data row
-    new_header = [f"{header} {data}".strip() if header else "" for header, data in zip(header_row, first_data_row)]
+    new_header = [f"{header} {data}".strip() if header else f"{data}".strip() for header, data in zip(header_row, first_data_row)]
     
     # Assign the merged row as the new column names
     df.columns = new_header
