@@ -1,4 +1,6 @@
- import pandas as pd
+Je veux modifier la fonction fusionner_lignes elle me fusionne la ligne 2 et 3 car elle supprime la 1 ere ligne et décale la 2 eme ligne a la premiere et la 3 eme a la 2 eme ce qui me fausse la fusion je veux fusionner la première ligne et la deuxieme ligne et rajouter la ligne fusionner en 3 eme ligne sans supprimer la premiere et deuxieme ligne pour le moment
+
+import pandas as pd
 
 # Fonction pour créer une troisième ligne avec la fusion des deux premières lignes et supprimer les deux premières lignes
 def fusionner_lignes(df):
@@ -24,42 +26,6 @@ def fusionner_lignes(df):
     # Supprimer les deux premières lignes d'origine (lignes 0 et 1 avant ajout de la ligne fusionnée)
     df = df.drop([1, 2]).reset_index(drop=True)
     
-    return df
-
-# Convertir le fichier xls en dataframe
-read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
-
-# Appliquer la fonction de fusion des deux premières lignes
-df_fusion = fusionner_lignes(read_file)
-
-# Sauvegarder le fichier après avoir fusionné les deux premières lignes
-df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False, header=True)
-
-# Confirmation de la création du fichier CSV
-print("Les deux premières lignes ont été fusionnées et sauvegardées.")
-
-
-
-
-
-import pandas as pd
-
-# Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
-def fusionner_lignes(df):
-    # Créer une nouvelle liste de colonnes fusionnées
-    new_columns = []
-    
-    for col in df.columns:
-        # Fusionner la première et la deuxième ligne, même si l'une des deux est vide
-        ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
-        ligne_2 = str(df[col].iloc[1]).strip() if not pd.isna(df[col].iloc[1]) else ""
-        
-        # Fusionner les deux lignes avec un espace entre elles
-        fusion = f"{ligne_1} {ligne_2}".strip()
-    
-        # Ajouter cette fusion à la liste des nouvelles colonnes
-        new_columns.append(fusion)    
-
     return df
 
 # Convertir le fichier xls en dataframe
