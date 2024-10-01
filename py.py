@@ -1,3 +1,18 @@
+                          Ligne  ... Total BUDGET demandé Réel
+0     Projet ou Chantier Projet  ...               K Euros nan
+1                      Chantier  ...                       NaN
+2                      Chantier  ...                       NaN
+3                      Chantier  ...                       NaN
+4                      Chantier  ...                       NaN
+...                         ...  ...                       ...
+5781                   Chantier  ...                       NaN
+5782                   Chantier  ...                       NaN
+5783                     Projet  ...                       NaN
+5784                   Chantier  ...                       NaN
+5785                   Chantier  ...                       NaN
+
+[5786 rows x 57 columns]
+Voici pourquoi il y'a une erreur corrige
 import pandas as pd
 
 # Fonction pour fusionner les deux premières lignes et ensuite les supprimer
