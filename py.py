@@ -1,10 +1,10 @@
+
+
 import pandas as pd
 
-# Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
+# Fonction pour fusionner les deux premières lignes de chaque colonne et supprimer la deuxième ligne
 def fusionner_lignes(df):
-    # Créer une nouvelle liste de colonnes fusionnées
-    new_columns = []
-    
+    # Parcourir chaque colonne pour fusionner les deux premières lignes
     for col in df.columns:
         # Fusionner la première et la deuxième ligne, même si l'une des deux est vide
         ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
@@ -13,16 +13,15 @@ def fusionner_lignes(df):
         # Fusionner les deux lignes avec un espace entre elles
         fusion = f"{ligne_1} {ligne_2}".strip()
         
-        # Ajouter cette fusion à la liste des nouvelles colonnes
-        new_columns.append(fusion)
+        # Mettre la fusion dans la première ligne
+        df[col].iloc[0] = fusion
     
-    # Supprimer les deux premières lignes uniquement après la fusion
-    df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les lignes d'index 0 et 1 (lignes 1 et 2 réelles)
-    df.columns = new_columns  # Renommer les colonnes avec les nouvelles valeurs fusionnées
-
+    # Supprimer la deuxième ligne après la fusion
+    df = df.drop(index=1).reset_index(drop=True)
+    
     return df
-
-# Convertir le fichier xls en dataframe
+    
+    # Convertir le fichier xls en dataframe
 read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
 
 # Appliquer la fonction de fusion des deux premières lignes
