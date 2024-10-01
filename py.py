@@ -16,7 +16,7 @@ def fusionner_lignes(df):
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
-    # Supprimer les deux premières lignes et renommer les colonnes
+    # Supprimer les deux premières lignes uniquement après la fusion
     df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les lignes d'index 0 et 1 (lignes 1 et 2 réelles)
     df.columns = new_columns  # Renommer les colonnes avec les nouvelles valeurs fusionnées
 
