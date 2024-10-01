@@ -1,3 +1,5 @@
+Supprimmer les caractère "unnamed: "[chiffre]"" de la première et la deuxième ligne
+
 import pandas as pd
 
 # Function to merge the header row with the first data row
@@ -16,7 +18,8 @@ def fusionner_header_ligne(df):
     
     # Drop the first data row (since it's merged into the header now)
     df = df.drop(0).reset_index(drop=True)
-    
+
+    print(df)
     return df
 
 # Load the Excel file
