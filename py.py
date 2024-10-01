@@ -10,15 +10,15 @@ def fusionner_lignes(df):
         ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
         ligne_2 = str(df[col].iloc[1]).strip() if not pd.isna(df[col].iloc[1]) else ""
         
-        # Fusionner les deux lignes avec un espace entre elles, même si l'une est vide
+        # Fusionner les deux lignes avec un espace entre elles
         fusion = f"{ligne_1} {ligne_2}".strip()
         
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
     # Supprimer les deux premières lignes et renommer les colonnes
-    df = df.drop([0, 1]).reset_index(drop=True)  # Supprimer les deux premières lignes
-    df.columns = new_columns  # Renommer les colonnes avec les valeurs fusionnées
+    df = df.drop([0, 1]).reset_index(drop=True)  # Supprime les lignes d'index 0 et 1 (lignes 1 et 2 réelles)
+    df.columns = new_columns  # Renommer les colonnes avec les nouvelles valeurs fusionnées
 
     return df
 
