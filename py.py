@@ -20,20 +20,20 @@ def fusionner_header_ligne(df):
     return df
 
 # Load the Excel file
-read_file = pd.read_excel("/mnt/data/20240902_etat_validation_paa_chantiers.xls")
+read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
 
 # Apply the function to merge the header and the first row
 df_fusion = fusionner_header_ligne(read_file)
 
 # Save the result to CSV
-df_fusion.to_csv("fusionned_file.csv", index=False)
+df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False)
 
 # Renaming columns as per your earlier script
 colonne_extraire = {
     "Ligne Projet ou Chantier": "Type",
     "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
-    "Macro-Domaine": "Domaine",
-    "Domaine": "Sous-domaine",
+    "Unnamed: 3 Macro-Domaine": "Domaine",
+    "Unnamed: 4 Domaine": "Sous-domaine",
     "Charges Structure MOAE/MOE Valide JH": "Charges SI (Interne/Externe) validée"
 }
 
@@ -48,9 +48,9 @@ df_filtre = df_selection[df_selection["Type"] == "Projet"]
 df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True, True])
 
 # Clean the "Charges SI (Interne/Externe) validée" column
-df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()
-df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
-df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].fillna(0)
+df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].astype(str).str.strip()
+df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].astype(str).str.replace(',', '.')
+df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].astype(str).fillna(0)
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
 
 # Calculate the total sum of charges for the entire SI
@@ -115,7 +115,7 @@ def ajouter_ligne_somme_par_domaine(df):
 df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
 # Save the final results to a new CSV file
-fichier_final = "copsi_mission_20240918.csv"
+fichier_final = "copsi_mission_20241001.csv"
 df_final.to_csv(fichier_final, index=False)
 
 # Confirmation of file creation
