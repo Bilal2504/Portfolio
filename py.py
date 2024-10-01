@@ -12,17 +12,17 @@ def fusionner_lignes(df):
         ligne_2 = str(df.iloc[1][col]) 
         
         # Fusionner les deux lignes avec un espace entre elles, si les deux ne sont pas vides
-        fusion = f"{ligne_1}"   f"{ligne_2}".strip()
+        fusion = f"{ligne_1} {ligne_2}".strip()
         
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
-    # Ajouter la ligne fusionnée en tant que première ligne
-    df.loc[1] = new_columns  # Ajouter une nouvelle ligne en position -
-    df.index = df.index  # Décaler les index
+    # Ajouter la ligne fusionnée en tant que première ligne (index 0)
+    df.loc[-1] = new_columns  # On insère avec un index temporaire négatif
+    df = df.sort_index().reset_index(drop=True)  # Réindexer correctement pour déplacer cette ligne en première position
 
-    # Supprimer les deux premières lignes d'origine
-    df = df.drop([0, 1]).reset_index(drop=True)
+    # Supprimer les deux premières lignes d'origine (celles avec les données originales)
+    df = df.drop([1, 2]).reset_index(drop=True)
     
     return df
 
