@@ -1,59 +1,34 @@
-                          Ligne  ... Total BUDGET demandé Réel
-0     Projet ou Chantier Projet  ...               K Euros nan
-1                      Chantier  ...                       NaN
-2                      Chantier  ...                       NaN
-3                      Chantier  ...                       NaN
-4                      Chantier  ...                       NaN
-...                         ...  ...                       ...
-5781                   Chantier  ...                       NaN
-5782                   Chantier  ...                       NaN
-5783                     Projet  ...                       NaN
-5784                   Chantier  ...                       NaN
-5785                   Chantier  ...                       NaN
-
-[5786 rows x 57 columns]
-Voici pourquoi il y'a une erreur comment acceder a la ligne titre sur calc corrige
 import pandas as pd
 
-# Fonction pour fusionner les deux premières lignes et ensuite les supprimer
-def fusionner_lignes(df):
-    # Créer une liste qui stockera les valeurs fusionnées des colonnes
-    new_columns = []
+# Function to merge the header row with the first data row
+def fusionner_header_ligne(df):
+    # Get the current header row (column names)
+    header_row = list(df.columns)
     
-    # Parcourir chaque colonne du DataFrame
-    for col in df.columns:
-        # Récupérer les valeurs des deux premières lignes pour la colonne actuelle
-        ligne_1 = str(df.iloc[0][col]) 
-        ligne_2 = str(df.iloc[1][col]) 
-        
-        # Fusionner les deux lignes avec un espace entre elles, si les deux ne sont pas vides
-        fusion = f"{ligne_1} {ligne_2}".strip()
-        
-        # Ajouter cette fusion à la liste des nouvelles colonnes
-        new_columns.append(fusion)
+    # Get the first data row (index 0)
+    first_data_row = df.iloc[0]
     
-    # Ajouter la ligne fusionnée en tant que première ligne (index 0)
-    df.loc[-1] = new_columns  # On insère avec un index temporaire négatif
-    df = df.sort_index().reset_index(drop=True)  # Réindexer correctement pour déplacer cette ligne en première position
-
-    # Supprimer les deux premières lignes d'origine (celles avec les données originales)
-    df = df.drop([1, 2]).reset_index(drop=True)
+    # Merge the header row and the first data row
+    new_header = [f"{header} {data}".strip() for header, data in zip(header_row, first_data_row)]
+    
+    # Assign the merged row as the new column names
+    df.columns = new_header
+    
+    # Drop the first data row (since it's merged into the header now)
+    df = df.drop(0).reset_index(drop=True)
     
     return df
 
-# Convertir le fichier xls en dataframe (remplacer par le bon chemin)
-read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
+# Load the Excel file
+read_file = pd.read_excel("/mnt/data/20240902_etat_validation_paa_chantiers.xls")
 
-# Appliquer la fonction de fusion des deux premières lignes
-df_fusion = fusionner_lignes(read_file)
+# Apply the function to merge the header and the first row
+df_fusion = fusionner_header_ligne(read_file)
 
-# Sauvegarder le fichier après avoir fusionné les deux premières lignes
-df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False, header=True)
+# Save the result to CSV
+df_fusion.to_csv("fusionned_file.csv", index=False)
 
-# Charger le fichier CSV après fusion
-df = pd.read_csv("20240902_etat_validation_paa_chantiers.csv")
-
-# Renommage des colonnes
+# Renaming columns as per your earlier script
 colonne_extraire = {
     "Ligne Projet ou Chantier": "Type",
     "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
@@ -62,30 +37,30 @@ colonne_extraire = {
     "Charges Structure MOAE/MOE Valide JH": "Charges SI (Interne/Externe) validée"
 }
 
-# Extraction et renommage des colonnes
-df_selection = df[list(colonne_extraire.keys())]
+# Extract and rename columns
+df_selection = df_fusion[list(colonne_extraire.keys())]
 df_selection = df_selection.rename(columns=colonne_extraire)
 
-# Filtre pour garder seulement les projets de type "Projet"
+# Filter to keep only projects of type "Projet"
 df_filtre = df_selection[df_selection["Type"] == "Projet"]
 
-# Trier par ordre croissant Domaine puis Sous-domaine
+# Sort by Domaine and Sous-domaine
 df_trie = df_filtre.sort_values(by=["Domaine", "Sous-domaine"], ascending=[True, True])
 
-# Nettoyage des données dans la colonne "Charges SI (Interne/Externe) validée"
+# Clean the "Charges SI (Interne/Externe) validée" column
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.strip()
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].str.replace(',', '.')
 df_trie["Charges SI (Interne/Externe) validée"] = df_trie["Charges SI (Interne/Externe) validée"].fillna(0)
 df_trie["Charges SI (Interne/Externe) validée"] = pd.to_numeric(df_trie["Charges SI (Interne/Externe) validée"], errors='coerce')
 
-# Calcul de la somme totale des charges pour tout le SI
+# Calculate the total sum of charges for the entire SI
 somme_total_si = df_trie["Charges SI (Interne/Externe) validée"].sum()
 
-# Ajouter la somme totale en première ligne
+# Add total sum to the first row
 df_trie['Somme total'] = ""
 df_trie.loc[df_trie.index[0], "Somme total"] = somme_total_si
 
-# Fonction pour ajouter des lignes de somme par sous-domaine et domaine
+# Function to add sum rows for each domain and subdomain
 def ajouter_ligne_somme_par_domaine(df):
     liste_dfs = []
     
@@ -129,7 +104,6 @@ def ajouter_ligne_somme_par_domaine(df):
             "Total domaine": [f"{somme_domaine}"],
             "Total sous-domaine": [""],
             "Poids total par domaine": [f"{poids_domaine}%"],
-            "Poids total par sous-domaine": [""],
             "Poids du sous-domaine dans le SI": [""]
         })
         
@@ -137,12 +111,12 @@ def ajouter_ligne_somme_par_domaine(df):
     
     return pd.concat(liste_dfs, ignore_index=True)
 
-# Appliquer la fonction pour ajouter les lignes de somme
+# Apply the function to add sum rows
 df_final = ajouter_ligne_somme_par_domaine(df_trie)
 
-# Sauvegarder les résultats dans un nouveau fichier CSV
+# Save the final results to a new CSV file
 fichier_final = "copsi_mission_20240918.csv"
 df_final.to_csv(fichier_final, index=False)
 
-# Confirmation de la création du fichier
+# Confirmation of file creation
 print(f"Les colonnes sélectionnées ont été sauvegardées dans {fichier_final}.")
