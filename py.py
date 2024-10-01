@@ -8,22 +8,21 @@ def fusionner_lignes(df):
     # Parcourir chaque colonne du DataFrame
     for col in df.columns:
         # Récupérer les valeurs des deux premières lignes pour la colonne actuelle
-        ligne_1 = str(df.iloc[0][col]) if not pd.isna(df.iloc[0][col]) else ""
-        ligne_2 = str(df.iloc[1][col]) if not pd.isna(df.iloc[1][col]) else ""
+        ligne_1 = str(df.iloc[0][col]) 
+        ligne_2 = str(df.iloc[1][col]) 
         
         # Fusionner les deux lignes avec un espace entre elles, si les deux ne sont pas vides
-        fusion = f"{ligne_1} {ligne_2}".strip()
+        fusion = f"{ligne_1}"   f"{ligne_2}".strip()
         
         # Ajouter cette fusion à la liste des nouvelles colonnes
         new_columns.append(fusion)
     
     # Ajouter la ligne fusionnée en tant que première ligne
-    df.loc[-1] = new_columns  # Ajouter une nouvelle ligne en position -1
-    df.index = df.index + 1  # Décaler les index
-    df = df.sort_index()  # Réorganiser le DataFrame
+    df.loc[1] = new_columns  # Ajouter une nouvelle ligne en position -
+    df.index = df.index  # Décaler les index
 
     # Supprimer les deux premières lignes d'origine
-    df = df.drop([1, 2], axis=0).reset_index(drop=True)
+    df = df.drop([0, 1]).reset_index(drop=True)
     
     return df
 
