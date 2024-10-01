@@ -1,28 +1,4 @@
-import pandas as pd
-
-# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes et supprimer les deux premières lignes
-def fusionner_lignes(df):
-    # Créer une nouvelle liste de colonnes fusionnées
-    new_columns = []
-    
-    for col in df.columns:
-        # Fusionner la première et la deuxième ligne, même si l'une des deux est vide
-        ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
-        ligne_2 = str(df[col].iloc[1]).strip() if not pd.isna(df[col].iloc[1]) else ""
-        
-        # Fusionner les deux lignes avec un espace entre elles
-        fusion = f"{ligne_1} {ligne_2}".strip()
-    
-        # Ajouter cette fusion à la liste des nouvelles colonnes
-        new_columns.append(fusion)
-    
-    # Insérer la fusion comme première ligne
-    df.loc[-1] = new_columns  # Ajoute la ligne fusionnée au DataFrame
-    df.index = df.index + 1   # Incrémenter les indices pour insérer la nouvelle ligne au début
-    df = df.sort_index()      # Réorganiser les indices pour​⬤
-    
-    
-    import pandas as pd
+ import pandas as pd
 
 # Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
 def fusionner_lignes(df):
