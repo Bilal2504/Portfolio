@@ -1,58 +1,5 @@
 import pandas as pd
 
-# Fonction pour créer une troisième ligne avec la fusion des deux premières lignes et supprimer les deux premières lignes
-def fusionner_lignes(df):
-    # Créer une nouvelle liste de colonnes fusionnées
-    new_columns = []
-    
-    for col in df.columns:
-        # Fusionner la première et la deuxième ligne, même si l'une des deux est vide
-        ligne_1 = str(df[col].iloc[0]).strip() if not pd.isna(df[col].iloc[0]) else ""
-        ligne_2 = str(df[col].iloc[1]).strip() if not pd.isna(df[col].iloc[1]) else ""
-        
-        # Fusionner les deux lignes avec un espace entre elles
-        fusion = f"{ligne_1} {ligne_2}".strip()
-    
-        # Ajouter cette fusion à la liste des nouvelles colonnes
-        new_columns.append(fusion)
-    
-    # Insérer la fusion comme troisième ligne
-    df.loc[-1] = new_columns  # Ajoute la ligne fusionnée en haut
-    df.index = df.index + 1   # Incrémenter les indices pour insérer la nouvelle ligne au début
-    df = df.sort_index()      # Réorganiser les indices
-    
-    # Supprimer les deux premières lignes
-    df = df.drop([0, 1]).reset_index(drop=True)
-    
-    return df
-
-# Convertir le fichier xls en dataframe
-read_file = pd.read_excel("20240902_etat_validation_paa_chantiers.xls")
-
-# Appliquer la fonction de fusion des deux premières lignes
-df_fusion = fusionner_lignes(read_file)
-
-# Sauvegarder le fichier après avoir fusionné les deux premières lignes
-df_fusion.to_csv("20240902_etat_validation_paa_chantiers.csv", index=False, header=True)
-
-# Charger le fichier CSV après fusion
-df = pd.read_csv("20240902_etat_validation_paa_chantiers.csv")
-
-# Renommage des colonnes comme dans l'exemple précédent
-colonne_extraire = {
-    "Ligne Projet ou Chantier": "Type",
-    "Projet / sous-projets Code projet ou sous-projet présent dans le référentiel des projets SI": "Projet",
-    "Macro-Domaine": "Domaine",
-    "Domaine": "Sous-domaine",
-    "Charges Structure MOAE/MOE Valide JH": "Charges SI (Interne/Externe) validée"
-}
-
-# Extraction et renommage des colonnes
-df_selection = df[list(colonne_extraire.keys())]
-df
-
-import pandas as pd
-
 # Fonction pour fusionner les deux premières lignes de chaque colonne en conservant les noms des deux
 def fusionner_lignes(df):
     # Créer une nouvelle liste de colonnes fusionnées
